@@ -14,10 +14,16 @@ function bowlingScore(frames) {
                     : frame[j] === 'X' || frame[j] === '/' ? score = score + 10 
                     : null
                 }
-            } else { 
-                !isNaN(frame[i]) ? score = score + parseInt(frame[i][0]) + parseInt(frame[i][1])
-                : frame[i].includes('X') && !isNaN(frame[i+1]) ? score = score + 10 + parseInt(frame[i+1][0]) + parseInt(frame[i+1][1]) 
-                : frame[i].includes('/') && !isNaN(frame[i+1]) ? score = score + 10 + parseInt(frame[i+1][0])
+            } else {
+                i === frame.length - 3 && frame[i] === 'X' && frame[i+1] === 'X' && frame[i+2][0] === 'X' || i === frame.length - 2 && frame[i] === 'X' && frame[i+1][0] === 'X' && frame[i+1][1] === 'X' ? score = score + 30
+                : i === frame.length - 2 && frame[i] === 'X' && frame[i+1][0] === 'X' && !isNaN(frame[i+1][1]) ? score = score + 20 + parseInt(frame[i+1][1])
+                : i === frame.length - 2 && frame[i].includes('/') && frame[i+1][0] === 'X' ? score = score + 20
+                : !isNaN(frame[i]) ? score = score + parseInt(frame[i][0]) + parseInt(frame[i][1])
+                : frame[i] === 'X' && !isNaN(frame[i+1]) ? score = score + 10 + parseInt(frame[i+1][0]) + parseInt(frame[i+1][1]) 
+                : frame[i].includes('/') && !isNaN(frame[i+1]) | frame[i+1].includes('/') ? score = score + 10 + parseInt(frame[i+1][0])
+                : frame[i] === 'X' && frame[i+1].includes('/') || frame[i].includes('/') && frame[i+1] === 'X' ? score = score + 20
+                : frame[i] === 'X' && frame[i+1] === 'X' && frame[i+2] === 'X' ? score = score + 30
+                : frame[i] === 'X' && frame[i+1] === 'X' && frame[i+2].includes('/') | !isNaN(frame[i+2]) ? score = score + 20 + parseInt(frame[i+2][0])
                 : null
             }
         }
@@ -35,7 +41,7 @@ console.log(bowlingScore('15 27 81 43 43 26 05 16 22 31'), 66)
 console.log(bowlingScore('X 11 11 11 X 11 11 11 11 11'), 40)
 console.log(bowlingScore('X 15 17 43 X 17 36 62 11 00'), 82)
 console.log(bowlingScore('X 15 17 43 X 17 36 62 11 71'), 90)
-console.log(bowlingScore('X 15 17 43 X 17 36 62 00 XXX'), 100)
+console.log(bowlingScore('X 15 17 43 X 17 36 62 00 XXX'), 110)
 console.log(bowlingScore('X 15 17 43 X 17 36 62 53 XXX'), 118)
 console.log(bowlingScore('X 15 17 43 X 17 36 62 45 3/X'), 109)
 // Numerical w/ Spares
