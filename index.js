@@ -26,6 +26,7 @@ function bowlingScore(frames) {
 }
 
 
+
 console.log('Original Tests:')
 // Numerical
 console.log(bowlingScore('11 11 11 11 11 11 11 11 11 11'), 20)
@@ -35,7 +36,7 @@ console.log(bowlingScore('15 27 81 43 43 26 05 16 22 31'), 66)
 console.log(bowlingScore('X 11 11 11 X 11 11 11 11 11'), 40)
 console.log(bowlingScore('X 15 17 43 X 17 36 62 11 00'), 82)
 console.log(bowlingScore('X 15 17 43 X 17 36 62 11 71'), 90)
-console.log(bowlingScore('X 15 17 43 X 17 36 62 00 XXX'), 100)
+console.log(bowlingScore('X 15 17 43 X 17 36 62 00 XXX'), 110)
 console.log(bowlingScore('X 15 17 43 X 17 36 62 53 XXX'), 118)
 console.log(bowlingScore('X 15 17 43 X 17 36 62 45 3/X'), 109)
 // Numerical w/ Spares
